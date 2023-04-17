@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 class Main extends Component {
     
@@ -9,9 +10,11 @@ class Main extends Component {
     render() {
         return(
             <>
-            <Form>
+            <Form.Group>
                 <Form.Label> Enter A City Name:</Form.Label>
-            </Form>
+                <Form.Control type="text" placeholder="Enter A City" />
+                <Button>Explore!</Button>
+            </Form.Group>
             </>
         )
     }
