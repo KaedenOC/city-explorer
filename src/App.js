@@ -1,16 +1,19 @@
-import React from 'react';
+import { Component } from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 
-function App() {
-  return (
-    <>
-    <Header />
-    <Main />
-    <Footer />
-    </>
-  )
+class App extends Component {
+  render() {
+    return (
+      <>
+        <Header />
+        <Main />
+        <Footer />
+      </>
+    )
+
+  }
 }
 
 export default App;
