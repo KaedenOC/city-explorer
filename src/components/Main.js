@@ -8,7 +8,8 @@ class Main extends Component {
         super(props);
         this.state = {
             cityName: '',
-            cityData: []
+            cityData: [],
+            
         }
     }
 
@@ -25,12 +26,15 @@ class Main extends Component {
         event.preventDefault();
 
         //TODO define our url to pass to axios using the city in state
-        // eslint-disable-next-line no-template-curly-in-string
-        let cityDataURL = 'https://us1.locationiq.com/v1/search?key=${REACT_APP_LOCATION_IQ_API_KEY}&q=${this.state.cityName}&format=json'
+        let cityDataURL = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATION_IQ_API_KEY}&q=${this.state.cityName}&format=json`
         //TODO use the city that is in state, and call to the Location IQ using axios
         let cityData = await axios.get(cityDataURL)
+        
         //TODO take the return from axios and set that to state - hold city data
-        console.log(cityData.data);
+        this.setState({
+            cityData: cityData.data[0]
+        })
+        console.log(cityData.data[0]);
     }
 
     render() {
