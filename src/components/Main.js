@@ -57,7 +57,7 @@ class Main extends Component {
     render() {
         return (
             <>
-                <Container>
+                <Container >
                     <Row>
                         <Col>
                             <Form onSubmit={this.getCityData}>
@@ -68,12 +68,12 @@ class Main extends Component {
                         </Col>
                     </Row>
                 </Container>
-                <Container>
+                <Container >
                     <Row>
                         <Col>
-                            <p>{this.state.cityData.display_name}</p>
-                            <p>{this.state.cityData.lat}</p>
-                            <p>{this.state.cityData.lon}</p>
+                            <p className="text-center mx-auto">{this.state.cityData.display_name}</p>
+                            <p className="text-center mx-auto">Latitude:{this.state.cityData.lat}</p>
+                            <p className="text-center mx-auto">Longitude:{this.state.cityData.lon}</p>
                         </Col>
                     </Row>
                 </Container>
