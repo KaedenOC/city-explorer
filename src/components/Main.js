@@ -2,7 +2,7 @@ import { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Alert } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image';
 
 class Main extends Component {
@@ -65,13 +65,18 @@ class Main extends Component {
                                 <Form.Label> Enter A City Name:</Form.Label>
                                 <Form.Control type="text" placeholder="Enter A City" onInput={this.handleInput} />
                                 <Button type="submit">Explore!</Button>
+
                             </Form>
                         </Col>
                     </Row>
 
                     <Row>
                         <Col>
-                            <p className="text-center mx-auto">{this.state.cityData.display_name}</p>
+                            <div className="text-center mx-auto">{
+                                this.state.error
+                                    ? <p>{this.state.errorMessage}</p>
+                                    : <p>{this.state.cityData.display_name}</p>
+                            }</div>
                             <p className="text-center mx-auto">Latitude:{this.state.cityData.lat}</p>
                             <p className="text-center mx-auto">Longitude:{this.state.cityData.lon}</p>
                         </Col>
