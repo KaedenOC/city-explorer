@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap'
+import Image from 'react-bootstrap/Image';
 
 class Main extends Component {
     constructor(props) {
@@ -35,7 +36,7 @@ class Main extends Component {
 
             let cityData = await axios.get(cityDataURL)
 
-            let mapUrl = `https://maps.locationiq.com/v3/staticmap?key=&{process.env.REACT_APP_LOCATION_IQ_API_KEY}&q=${cityData.data[0].lat},${cityData.data[0].lon}`
+            let mapUrl = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_API_KEY}&center=${cityData.data[0].lat},${cityData.data[0].lon}&zoom=10`
 
             this.setState({
                 cityData: cityData.data[0],
@@ -67,13 +68,17 @@ class Main extends Component {
                             </Form>
                         </Col>
                     </Row>
-                </Container>
-                <Container >
+
                     <Row>
                         <Col>
                             <p className="text-center mx-auto">{this.state.cityData.display_name}</p>
                             <p className="text-center mx-auto">Latitude:{this.state.cityData.lat}</p>
                             <p className="text-center mx-auto">Longitude:{this.state.cityData.lon}</p>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="d-flex justify-content-center align-items-center">
+                            <Image src={this.state.mapUrl} />
                         </Col>
                     </Row>
                 </Container>
