@@ -1,16 +1,25 @@
 # Project Name
 
-**Author**: Your Name Goes Here
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Author**: Kaeden
+**Version**: 1.0.0
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
+This application is built using React. A user can input a city and see latitude and longitude coordinates, and a geolocation of that city. 
 
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
 
+1. Install Node.js and npm.
+2. Create a new React app on your local machine ``` npx create-react-app my-app ```.
+3. Create your own GitHub repo and clone this repo onto your local machine.
+4. Create a LocationIQ account and get your personal API key.
+5. Open the app within your code editor and create a .env file to store your API key.
+
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
+Built using React, Bootstrap, and axios for API handling.
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
@@ -22,12 +31,12 @@
 
 ## Time Estimates
 
-Name of feature:
+Name of feature: Setup React Repository & API Keys, Locations, Map, Error Handling
 
 Estimate of time needed to complete:
 
-Start time:
+Start time: 2:00pm
 
-Finish time:
+Finish time: 8:07pm
 
 Actual time needed to complete:
