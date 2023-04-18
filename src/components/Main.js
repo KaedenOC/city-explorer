@@ -72,13 +72,19 @@ class Main extends Component {
 
                     <Row>
                         <Col>
-                            <div className="text-center mx-auto">{
-                                this.state.error
-                                    ? <p>{this.state.errorMessage}</p>
-                                    : <p>{this.state.cityData.display_name}</p>
-                            }</div>
-                            <p className="text-center mx-auto">Latitude:{this.state.cityData.lat}</p>
-                            <p className="text-center mx-auto">Longitude:{this.state.cityData.lon}</p>
+                            {this.state.error ? (
+                                <div className="text-center mx-auto">
+                                    <div className="alert alert-danger" role="alert">
+                                        {this.state.errorMessage}
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="text-center mx-auto">
+                                    <p>{this.state.cityData.display_name}</p>
+                                    <p>Latitude:{this.state.cityData.lat}</p>
+                                    <p>Longitude:{this.state.cityData.lon}</p>
+                                </div>
+                            )}
                         </Col>
                     </Row>
                     <Row>
