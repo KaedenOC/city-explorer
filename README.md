@@ -29,6 +29,8 @@ Built using React, Bootstrap, and axios for API handling.
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
+Web Request-Response Cycle primarily worked on by Kyle White: [Miro WRRC](https://miro.com/app/board/uXjVMSasG74=/)
+
 ## Time Estimates
 
 Name of feature: Setup React Repository & API Keys, Locations, Map, Error Handling
