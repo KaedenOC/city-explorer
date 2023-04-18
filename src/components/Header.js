@@ -1,9 +1,10 @@
 import { Component } from 'react';
 
+
 class Header extends Component {
     render() {
         return (
-            <h1>City Explorer</h1>
+            <h1 className="text-center mx-auto">City Explorer</h1>
         )
     }
 }
