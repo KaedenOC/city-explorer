@@ -2,7 +2,7 @@ import { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import { Container, Row, Col, Alert } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image';
 
 class Main extends Component {
