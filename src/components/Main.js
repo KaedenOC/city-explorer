@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image';
+import Weather from './Weather';
 
 class Main extends Component {
     constructor(props) {
@@ -11,9 +12,13 @@ class Main extends Component {
         this.state = {
             cityName: '',
             cityData: [],
+            serverData: {},
+            showWeather: false,
             error: false,
             errorMessage: '',
-            mapUrl: ''
+            mapUrl: '',
+            weatherData: '',
+            dateData: ''
         }
     }
 
@@ -29,31 +34,62 @@ class Main extends Component {
 
     getCityData = async (event) => {
         event.preventDefault();
-
+        
         try {
-
+            
             let cityDataURL = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATION_IQ_API_KEY}&q=${this.state.cityName}&format=json`
-
+            
+            
             let cityData = await axios.get(cityDataURL)
-
+            
             let mapUrl = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_API_KEY}&center=${cityData.data[0].lat},${cityData.data[0].lon}&zoom=10`
-
+            
+            this.getWeatherData(event);
+            
             this.setState({
                 cityData: cityData.data[0],
                 error: false,
                 mapUrl: mapUrl
             })
             console.log(cityData.data[0]);
-
+            
         } catch (error) {
             //TODO set state with the error boolean and error message
             this.setState({
                 error: true,
-                errorMessage: error.message
+                errorMessage: error.message,
+                showWeather: false
             })
         }
-
+        
     }
+    
+    getWeatherData = async (event) => {
+        event.preventDefault();
+
+        try {
+            let serverUrl = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.cityName}`
+
+            console.log('this is the url', serverUrl);
+            let serverData = await axios.get(serverUrl)
+
+            this.setState({
+                weatherData: serverData.data.description,
+                dateData: serverData.data.valid_date,
+                showWeather: true,
+            })
+            console.log('this is the serverdata.description', serverData.data.description);
+
+        } catch (error) {
+            console.log(error.message);
+            this.setState({
+                showWeather: false
+            })
+        }
+    }
+
+
+
 
     render() {
         return (
@@ -84,7 +120,13 @@ class Main extends Component {
                                     <p>Latitude:{this.state.cityData.lat}</p>
                                     <p>Longitude:{this.state.cityData.lon}</p>
                                 </div>
+
                             )}
+                            {
+                            this.state.showWeather
+                            ? <Weather weatherData={this.state.weatherData} dateData={this.state.dateData} />
+                            : <></>
+                        }
                         </Col>
                     </Row>
                     <Row>
