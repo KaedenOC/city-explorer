@@ -42,3 +42,14 @@ Start time: 2:00pm
 Finish time: 8:07pm
 
 Actual time needed to complete:
+
+
+Name of feature: Weather info for the city I searched, so that I know how to pack for an upcoming trip.
+
+Estimate of time needed to complete:
+
+Start time: 2:48pm
+
+Finish time: pm
+
+Actual time needed to complete:
