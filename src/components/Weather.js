@@ -4,7 +4,7 @@ class Weather extends Component {
   render() {
     return (
         <>
-            <p>{this.props.dateData} {this.props.weatherData}.</p>
+            {/* <p>{this.props.dateData} {this.props.weatherData}.</p> */}
         </>
           
     )
