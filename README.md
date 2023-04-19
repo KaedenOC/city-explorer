@@ -50,6 +50,6 @@ Estimate of time needed to complete:
 
 Start time: 2:48pm
 
-Finish time: pm
+Finish time: 4:55pm
 
 Actual time needed to complete:
