@@ -12,7 +12,7 @@ class Main extends Component {
         this.state = {
             cityName: '',
             cityData: [],
-            serverData: {},
+            serverData: [],
             showWeather: false,
             error: false,
             errorMessage: '',
@@ -72,13 +72,14 @@ class Main extends Component {
 
             console.log('this is the url', serverUrl);
             let serverData = await axios.get(serverUrl)
+            console.log(serverData)
 
             this.setState({
-                weatherData: serverData.data.description,
-                dateData: serverData.data.valid_date,
+                weatherData: serverData.data,
+                dateData: serverData.data,
                 showWeather: true,
             })
-            console.log('this is the serverdata.description', serverData.data.description);
+            console.log('this is the serverdata.data', serverData.data);
 
         } catch (error) {
             console.log(error.message);
