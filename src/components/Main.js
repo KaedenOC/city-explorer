@@ -6,6 +6,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image';
 import Weather from './Weather';
 import Movies from './Movies';
+import FormComp from './Form';
 
 class Main extends Component {
     constructor(props) {
@@ -121,16 +122,7 @@ class Main extends Component {
         return (
             <>
                 <Container >
-                    <Row>
-                        <Col>
-                            <Form onSubmit={this.getCityData}>
-                                <Form.Label> Enter A City Name:</Form.Label>
-                                <Form.Control type="text" placeholder="Enter A City" onInput={this.handleInput} />
-                                <Button type="submit">Explore!</Button>
-
-                            </Form>
-                        </Col>
-                    </Row>
+                   <FormComp onSubmit={this.getCityData} onInput={this.handleInput}/>
 
                     <Row>
                         <Col>
