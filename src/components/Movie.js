@@ -14,7 +14,7 @@ class Movie extends Component {
               className="d-block w-100"
               src={`https://image.tmdb.org/t/p/w500${movieData.imgURL}`}
               alt={movieData.title}
-              // style={{ maxHeight: '500px', objectFit: 'contain' }}
+              style={{ maxHeight: '500px', objectFit: 'contain' }}
             />
             <Carousel.Caption>
               <h2>{movieData.title}</h2>

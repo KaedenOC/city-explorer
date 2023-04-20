@@ -1,10 +1,17 @@
 import { Component } from 'react';
+import { Navbar } from 'react-bootstrap';
 
 
 class Header extends Component {
     render() {
         return (
-            <h1 className="text-center mx-auto">City Explorer</h1>
+            <Navbar bg="dark" variant="dark">
+                <Navbar.Brand className="text-center mx-auto">
+                <h1>City Explorer</h1>
+
+                </Navbar.Brand>
+
+            </Navbar>
         )
     }
 }

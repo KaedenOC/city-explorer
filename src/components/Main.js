@@ -1,6 +1,4 @@
 import { Component } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image';
@@ -145,7 +143,7 @@ class Main extends Component {
                                     ? <Weather weatherData={this.state.weatherData} dateData={this.state.dateData} />
                                     : <></>
                             }
-
+                        
                             {
                                 this.state.showMovie
                                     ? <Movies movieData={this.state.movieData} />
