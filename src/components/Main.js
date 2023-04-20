@@ -13,7 +13,9 @@ class Main extends Component {
             cityName: '',
             cityData: [],
             serverData: [],
+            movieData: [],
             showWeather: false,
+            showMovie: false,
             error: false,
             errorMessage: '',
             mapUrl: '',
@@ -45,6 +47,7 @@ class Main extends Component {
             let mapUrl = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_API_KEY}&center=${cityData.data[0].lat},${cityData.data[0].lon}&zoom=10`
             
             this.getWeatherData(cityData.data[0].lat, cityData.data[0].lon);
+            this.getMovieData(this.state.cityName);
             
             this.setState({
                 cityData: cityData.data[0],
@@ -72,7 +75,7 @@ class Main extends Component {
 
             console.log('this is the url', serverUrl);
             let serverData = await axios.get(serverUrl)
-            console.log(serverData)
+            // console.log(serverData)
 
             this.setState({
                 weatherData: serverData.data,
@@ -85,6 +88,27 @@ class Main extends Component {
             console.log(error.message);
             this.setState({
                 showWeather: false
+            })
+        }
+    }
+
+    getMovieData = async (cityName) => {
+        try {
+            let movieUrl = `${process.env.REACT_APP_SERVER}/movies?city=${this.state.cityName}`;
+
+
+            let movieData = await axios.get(movieUrl);
+            console.log(movieData.data.results)
+            this.setState({
+                movieData: movieData.data.results,
+                showMovie: true,
+            })
+
+        } catch (error) {        
+            this.setState({
+                error: true,
+                errorMsg: "Oops There Was An Error",
+                showMovie: false,
             })
         }
     }
