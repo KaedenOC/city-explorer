@@ -8,7 +8,9 @@ class FormComp extends Component {
         <Row>
           <Col>
             <Form onSubmit={this.props.onSubmit}>
-              <Form.Label> Enter A City Name:</Form.Label>
+              <Row>
+              <Form.Label className="text-center mx-auto" column="lg"> Enter A City Name:</Form.Label>
+              </Row>
               <Form.Control type="text" placeholder="Enter A City" onInput={this.props.onInput} />
               <Button type="submit">Explore!</Button>
 
