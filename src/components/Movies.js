@@ -8,9 +8,10 @@ class Movies extends Component {
         {this.props.movieData.map((obj, idx) => (
           <Carousel.Item key={idx}>
             <img
-              className=""
-              src={`https://image.tmdb.org/t/p/w200${obj.imgURL}`}
+              className="d-block w-100"
+              src={`https://image.tmdb.org/t/p/w500${obj.imgURL}`}
               alt={obj.title}
+              // style={{ maxHeight: '500px', objectFit: 'contain' }}
             />
             <Carousel.Caption>
               <h2>{obj.title}</h2>

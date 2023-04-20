@@ -149,7 +149,7 @@ class Main extends Component {
 
                             )}
                             {
-                                this.state.showWeather
+                                this.state.showWeather 
                                     ? <Weather weatherData={this.state.weatherData} dateData={this.state.dateData} />
                                     : <></>
                             }
