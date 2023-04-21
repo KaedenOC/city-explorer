@@ -1,11 +1,11 @@
 import { Component } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image';
 import Weather from './Weather';
 import Movies from './Movies';
+import FormComp from './Form';
+import { Card } from 'react-bootstrap';
 
 class Main extends Component {
     constructor(props) {
@@ -121,16 +121,7 @@ class Main extends Component {
         return (
             <>
                 <Container >
-                    <Row>
-                        <Col>
-                            <Form onSubmit={this.getCityData}>
-                                <Form.Label> Enter A City Name:</Form.Label>
-                                <Form.Control type="text" placeholder="Enter A City" onInput={this.handleInput} />
-                                <Button type="submit">Explore!</Button>
-
-                            </Form>
-                        </Col>
-                    </Row>
+                    <FormComp onSubmit={this.getCityData} onInput={this.handleInput} />
 
                     <Row>
                         <Col>
@@ -141,29 +132,32 @@ class Main extends Component {
                                     </div>
                                 </div>
                             ) : (
-                                <div className="text-center mx-auto">
-                                    <p>{this.state.cityData.display_name}</p>
-                                    <p>{this.state.cityData.lat}</p>
-                                    <p>{this.state.cityData.lon}</p>
-                                </div>
+                                <Card>
+                                    <div className="text-center mx-auto">
+                                        <p>{this.state.cityData.display_name}</p>
+                                        <p>{this.state.cityData.lat}</p>
+                                        <p>{this.state.cityData.lon}</p>
+                                    </div>
+
+                                </Card>
 
                             )}
                             {
-                                this.state.showWeather 
+                                this.state.showWeather
                                     ? <Weather weatherData={this.state.weatherData} dateData={this.state.dateData} />
                                     : <></>
                             }
+                            <Row>
+                                <Col className="d-flex justify-content-center align-items-center">
+                                    <Image id="map"  src={this.state.mapUrl} />
+                                </Col>
+                            </Row>
 
                             {
                                 this.state.showMovie
                                     ? <Movies movieData={this.state.movieData} />
                                     : <></>
                             }
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col className="d-flex justify-content-center align-items-center">
-                            <Image src={this.state.mapUrl} />
                         </Col>
                     </Row>
                 </Container>
