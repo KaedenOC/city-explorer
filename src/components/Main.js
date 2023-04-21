@@ -121,7 +121,7 @@ class Main extends Component {
         return (
             <>
                 <Container >
-                   <FormComp onSubmit={this.getCityData} onInput={this.handleInput}/>
+                    <FormComp onSubmit={this.getCityData} onInput={this.handleInput} />
 
                     <Row>
                         <Col>
@@ -133,31 +133,31 @@ class Main extends Component {
                                 </div>
                             ) : (
                                 <Card>
-                                <div className="text-center mx-auto">
-                                    <p>{this.state.cityData.display_name}</p>
-                                    <p>{this.state.cityData.lat}</p>
-                                    <p>{this.state.cityData.lon}</p>
-                                </div>
+                                    <div className="text-center mx-auto">
+                                        <p>{this.state.cityData.display_name}</p>
+                                        <p>{this.state.cityData.lat}</p>
+                                        <p>{this.state.cityData.lon}</p>
+                                    </div>
 
                                 </Card>
 
                             )}
                             {
-                                this.state.showWeather 
+                                this.state.showWeather
                                     ? <Weather weatherData={this.state.weatherData} dateData={this.state.dateData} />
                                     : <></>
                             }
-                        
+                            <Row>
+                                <Col className="d-flex justify-content-center align-items-center">
+                                    <Image id="map"  src={this.state.mapUrl} />
+                                </Col>
+                            </Row>
+
                             {
                                 this.state.showMovie
                                     ? <Movies movieData={this.state.movieData} />
                                     : <></>
                             }
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col className="d-flex justify-content-center align-items-center">
-                            <Image src={this.state.mapUrl} />
                         </Col>
                     </Row>
                 </Container>

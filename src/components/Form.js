@@ -7,7 +7,7 @@ class FormComp extends Component {
       <>
         <Row>
           <Col>
-            <Form onSubmit={this.props.onSubmit}>
+            <Form id="form"  onSubmit={this.props.onSubmit}>
               <Row>
               <Form.Label className="text-center mx-auto" column="lg"> Enter A City Name:</Form.Label>
               </Row>

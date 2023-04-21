@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-image: url("../img/seattle.jpg");
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+}
+
+#carouselbg {
+  background-color: #282c34;
+  opacity: 90%;
+}
+
+
+
+#map {
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px #282c34;
+}
